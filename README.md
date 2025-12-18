@@ -1,34 +1,43 @@
 # 🎄 Christmas Educational Calendar 🎄
 
-A festive, interactive advent calendar featuring educational content for each day of December!
+A festive, interactive advent calendar featuring quiz-style questions about Christmas traditions around the world!
 
 ## About
 
-The Christmas Educational Calendar is a static website that combines the joy of advent calendars with daily learning. Each day from December 1st through December 24th reveals a new piece of educational content about Christmas traditions, winter science, history, and global celebrations.
+The Christmas Educational Calendar is a static website that combines the joy of advent calendars with a fun quiz challenge. Each day from December 1st through December 24th reveals a new question about Christmas celebrations from different countries. Answer correctly to see a cheerful elf!
 
 ## Features
 
-- **24 Interactive Doors**: One for each day leading up to Christmas
-- **Educational Content**: Learn something new every day about:
-  - Christmas traditions and history
-  - Winter science and weather
-  - Global celebrations
-  - Fascinating facts and stories
+- **24 Interactive Quiz Doors**: One for each day leading up to Christmas
+- **Christmas Around the World Challenge**: Learn about unique Christmas traditions from 24 different countries
+- **Quiz-Style Interaction**: Type your answer and submit to check if you're correct
+- **Elf Rewards**: Get the answer right and a dancing elf appears to celebrate with you! 🧝
 - **Progressive Unlocking**: Doors unlock on their respective dates in December
-- **Persistent Progress**: Tracks which doors you've opened using localStorage
+- **Persistent Progress**: Tracks which doors you've opened and answered correctly using localStorage
 - **Responsive Design**: Works beautifully on desktop, tablet, and mobile devices
-- **Beautiful Animations**: Smooth transitions and festive visual effects
+- **Beautiful Animations**: Smooth transitions, dancing elves, and festive visual effects
 
 ## How to Use
 
 1. Open `index.html` in your web browser
-2. Click on any unlocked door to reveal the educational content for that day
-3. Come back each day in December to unlock and discover new content!
-4. Doors are locked until their respective dates (December 1-24)
+2. Click on any unlocked door to reveal the quiz question for that day
+3. Type your answer in the text box and click "Submit Answer" (or press Enter)
+4. If you answer correctly, you'll see a dancing elf celebrating with you! 🎉
+5. Come back each day in December to unlock and answer new questions!
+6. Doors are locked until their respective dates (December 1-24)
+
+## Quiz Topics
+
+Questions cover fascinating Christmas traditions from countries including:
+- Japan 🇯🇵 - Germany 🇩🇪 - Mexico 🇲🇽 - Norway 🇳🇴 - Australia 🇦🇺
+- Ukraine 🇺🇦 - Italy 🇮🇹 - Sweden 🇸🇪 - Philippines 🇵🇭 - Netherlands 🇳🇱
+- Spain 🇪🇸 - France 🇫🇷 - UK 🇬🇧 - Iceland 🇮🇸 - USA 🇺🇸
+- Poland 🇵🇱 - Venezuela 🇻🇪 - Finland 🇫🇮 - Greenland 🇬🇱 - Greece 🇬🇷
+- Ireland 🇮🇪 - Canada 🇨🇦 - Ethiopia 🇪🇹 - Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿
 
 ## For Testing
 
-To unlock all doors for testing purposes, edit `script.js` and uncomment line 332:
+To unlock all doors for testing purposes, edit `script.js` and uncomment line 132:
 ```javascript
 const currentDay = 25;
 ```
