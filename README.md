@@ -28,7 +28,7 @@ The Christmas Educational Calendar is a static website that combines the joy of 
 
 ## For Testing
 
-To unlock all doors for testing purposes, edit `script.js` and uncomment line 297:
+To unlock all doors for testing purposes, edit `script.js` and uncomment line 332:
 ```javascript
 const currentDay = 25;
 ```
