@@ -37,7 +37,7 @@ Questions cover fascinating Christmas traditions from countries including:
 
 ## For Testing
 
-To unlock all doors for testing purposes, edit `script.js` and uncomment line 132:
+To unlock all doors for testing purposes, edit `script.js` and uncomment line 133:
 ```javascript
 const currentDay = 25;
 ```

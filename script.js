@@ -243,30 +243,42 @@ function openDoor(day, doorElement) {
             const correctAnswer = quiz.answer.toLowerCase();
             const userAnswerLower = userAnswer.toLowerCase();
             
-            // Check for exact match or close match
+            // Remove common punctuation and extra spaces
+            const normalizeAnswer = (text) => text.replace(/[.,!?;:()'"-]/g, '').replace(/\s+/g, ' ').trim();
+            const normalizedCorrect = normalizeAnswer(correctAnswer);
+            const normalizedUser = normalizeAnswer(userAnswerLower);
+            
             let isCorrect = false;
             
-            // Direct match
-            if (userAnswerLower === correctAnswer) {
+            // Direct match (exact or normalized)
+            if (userAnswerLower === correctAnswer || normalizedUser === normalizedCorrect) {
                 isCorrect = true;
             }
-            // Check if user answer contains the correct answer or vice versa
-            else if (correctAnswer.includes(userAnswerLower) || userAnswerLower.includes(correctAnswer)) {
+            // For True/False questions
+            else if ((correctAnswer === 'true' && userAnswerLower === 'true') || 
+                     (correctAnswer === 'false' && userAnswerLower === 'false')) {
                 isCorrect = true;
             }
-            // For specific answers, check variations
-            else if (correctAnswer.includes('true') && userAnswerLower.includes('true')) {
-                isCorrect = true;
-            }
-            else if (correctAnswer.includes('false') && userAnswerLower.includes('false')) {
-                isCorrect = true;
-            }
-            // Check for common variations
-            else if (correctAnswer.includes('goat') && userAnswerLower.includes('goat')) {
-                isCorrect = true;
-            }
-            else if (correctAnswer.includes('beach') && userAnswerLower.includes('beach')) {
-                isCorrect = true;
+            // Check if the user's answer contains all key words from the correct answer (min 3 chars each)
+            else {
+                const correctWords = normalizedCorrect.split(' ').filter(w => w.length >= 3);
+                const userWords = normalizedUser.split(' ');
+                
+                // If correct answer has key words, check if user included them
+                if (correctWords.length > 0) {
+                    const matchedWords = correctWords.filter(word => 
+                        userWords.some(userWord => 
+                            userWord.includes(word) || word.includes(userWord)
+                        )
+                    );
+                    // Consider correct if at least 50% of key words match for multi-word answers
+                    // or exact match for single word answers
+                    if (correctWords.length === 1 && matchedWords.length === 1) {
+                        isCorrect = true;
+                    } else if (correctWords.length > 1 && matchedWords.length >= Math.ceil(correctWords.length * 0.6)) {
+                        isCorrect = true;
+                    }
+                }
             }
             
             if (isCorrect) {
